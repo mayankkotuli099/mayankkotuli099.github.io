@@ -13,7 +13,8 @@ const Projects = () => {
       year: '2026',
       type: 'WEB PLATFORM',
       live: 'https://abes.work',
-      source: 'PRIVATE'
+      source: 'PRIVATE',
+      image: '/abes.png'
     },
     {
       title: 'FormMitra AI',
@@ -22,7 +23,8 @@ const Projects = () => {
       year: '2026',
       type: 'AI APPLICATION',
       live: 'https://form-mitra-ai-nu.vercel.app/',
-      source: 'https://github.com/mayankkotuli099/FormMitra-AI.git'
+      source: 'https://github.com/mayankkotuli099/FormMitra-AI.git',
+      image: '/formmitra.png'
     },
     {
       title: 'CrimeLens',
@@ -74,8 +76,14 @@ const Projects = () => {
           >
             {/* Image/Visual Area */}
             <div style={{ height: '180px', background: 'rgba(255,255,255,0.02)', borderBottom: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-               <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
-               <Code size={48} color="var(--border-color)" style={{ zIndex: 1 }} />
+               {p.image ? (
+                 <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} />
+               ) : (
+                 <>
+                   <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
+                   <Code size={48} color="var(--border-color)" style={{ zIndex: 1 }} />
+                 </>
+               )}
                
                {/* Hover Technical Info Overlay */}
                <AnimatePresence>
