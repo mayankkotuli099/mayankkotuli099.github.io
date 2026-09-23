@@ -33,7 +33,8 @@ const Projects = () => {
       year: '2026',
       type: 'AI SYSTEM',
       live: 'COMING SOON',
-      source: 'https://github.com/mayankkotuli099/Crime-Lens.git'
+      source: 'https://github.com/mayankkotuli099/Crime-Lens.git',
+      image: '/crimelens.png'
     },
     {
       title: 'Flutter Calculator',
