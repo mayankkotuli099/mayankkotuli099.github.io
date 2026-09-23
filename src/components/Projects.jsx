@@ -37,13 +37,14 @@ const Projects = () => {
       image: '/crimelens.png'
     },
     {
-      title: 'Flutter Calculator',
-      desc: 'A Flutter-based calculator application with expression evaluation and a clean interactive interface.',
-      tech: ['Flutter', 'Dart'],
-      year: '2025',
-      type: 'MOBILE APP',
+      title: 'Intervista',
+      desc: 'An AI-powered interview preparation platform designed to help users practice interviews, improve their answers, and prepare more effectively for technical and professional interviews.',
+      tech: [],
+      year: '2026',
+      type: 'AI PLATFORM',
       live: null,
-      source: null
+      source: null,
+      image: '/intervista.png'
     }
   ];
 
