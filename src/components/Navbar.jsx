@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Command } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -31,6 +32,14 @@ const Navbar = () => {
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }));
   };
 
+  const navLinks = [
+    { name: 'home', path: '/' },
+    { name: 'about', path: '/about' },
+    { name: 'projects', path: '/projects' },
+    { name: 'skills', path: '/skills' },
+    { name: 'contact', path: '/contact' }
+  ];
+
   return (
     <header style={{
       position: 'fixed',
@@ -50,10 +59,10 @@ const Navbar = () => {
       }}>
         {/* Left Side: Brand & System Status */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <a href="#top" className="font-mono" style={{ fontWeight: 600, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
+          <Link to="/" className="font-mono" style={{ fontWeight: 600, fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
             <span className="animate-blink" style={{ width: '8px', height: '14px', background: 'var(--accent-cyan)', display: 'inline-block' }}></span>
             system.init()
-          </a>
+          </Link>
 
           {/* System Status Indicator */}
           <div className="font-mono" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.65rem', color: 'var(--text-dim)' }}>
@@ -78,17 +87,17 @@ const Navbar = () => {
         {/* Right Side: Nav & Command Trigger */}
         <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
           <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.85rem' }} className="font-mono nav-links">
-            {['home', 'projects', 'skills', 'contact'].map(link => (
-              <a 
-                key={link} 
-                href={`#${link}`} 
+            {navLinks.map(link => (
+              <Link 
+                key={link.name} 
+                to={link.path} 
                 style={{ color: 'var(--text-secondary)' }}
                 onMouseOver={e => e.target.style.color = 'var(--text-primary)'}
                 onMouseOut={e => e.target.style.color = 'var(--text-secondary)'}
               >
                 <span style={{ color: 'var(--border-hover)', marginRight: '4px' }}>//</span>
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </nav>
 

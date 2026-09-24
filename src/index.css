@@ -130,15 +130,25 @@ ul {
   padding: 0 2rem;
 }
 
+main {
+  min-height: calc(100vh - 100px);
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
 .section {
-  padding: 8rem 0;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-title-wrapper {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title {
@@ -300,12 +310,16 @@ ul {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  main {
+    padding-top: 140px; /* More space for wrapped mobile nav */
+  }
+
   .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
   
   .section {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 
   .section-title {
@@ -338,12 +352,14 @@ ul {
   .nav-right {
     flex-direction: column !important;
     gap: 1rem !important;
+    width: 100%;
   }
 
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem !important;
+    width: 100%;
   }
 
   .footer-container {
@@ -354,10 +370,12 @@ ul {
 
   .footer-socials {
     justify-content: center !important;
+    flex-wrap: wrap;
   }
   
   .scanline-container {
-    width: 280px !important;
+    width: 100% !important;
+    max-width: 280px !important;
     height: 350px !important;
     margin: 0 auto;
   }
@@ -365,4 +383,10 @@ ul {
   .hero-title {
     font-size: clamp(2.5rem, 8vw, 4rem) !important;
   }
+
+  .btn-primary, .btn-outline {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
 }
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const textToType = "Engineering the intersection of software, artificial intelligence, and cybersecurity.";
@@ -45,12 +46,12 @@ const Hero = () => {
           </p>
 
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="#projects" className="btn-primary">
+            <Link to="/projects" className="btn-primary">
                View Work <ArrowRight size={16} />
-            </a>
-            <a href="#contact" className="btn-outline">
+            </Link>
+            <Link to="/contact" className="btn-outline">
                <Code size={16} /> Contact Me
-            </a>
+            </Link>
           </div>
         </motion.div>
 
@@ -65,7 +66,7 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="font-mono" style={{ position: 'absolute', top: '10%', left: '-10%', background: 'rgba(0, 217, 255, 0.05)', border: '1px solid rgba(0, 217, 255, 0.2)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-cyan)', backdropFilter: 'blur(8px)', zIndex: 10 }}
+            className="font-mono" style={{ position: 'absolute', top: '10%', left: '-10%', background: 'rgba(0, 217, 255, 0.05)', border: '1px solid rgba(0, 217, 255, 0.4)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-cyan)', backdropFilter: 'blur(8px)', zIndex: 10, boxShadow: '0 0 15px rgba(0, 217, 255, 0.2)' }}
           >
             AI · CYBERSECURITY
           </motion.div>
@@ -73,27 +74,28 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [10, -10, 10] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="font-mono" style={{ position: 'absolute', bottom: '20%', right: '-10%', background: 'rgba(167, 139, 250, 0.05)', border: '1px solid rgba(167, 139, 250, 0.2)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-purple)', backdropFilter: 'blur(8px)', zIndex: 10 }}
+            className="font-mono" style={{ position: 'absolute', bottom: '20%', right: '-10%', background: 'rgba(167, 139, 250, 0.05)', border: '1px solid rgba(167, 139, 250, 0.4)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-purple)', backdropFilter: 'blur(8px)', zIndex: 10, boxShadow: '0 0 15px rgba(167, 139, 250, 0.2)' }}
           >
             SOFTWARE_DEVELOPER
           </motion.div>
+
+          {/* Glowing Background for Photo */}
+          <div style={{ position: 'absolute', inset: -20, background: 'radial-gradient(circle, rgba(0,217,255,0.15) 0%, transparent 70%)', zIndex: 0, filter: 'blur(20px)' }}></div>
 
           {/* Profile Box */}
           <div className="scanline-container" style={{ 
             width: '320px', 
             height: '400px', 
-            border: '1px solid var(--border-color)', 
+            border: '2px solid rgba(0, 217, 255, 0.3)', 
             borderRadius: '24px', 
             position: 'relative',
             background: 'var(--bg-card)',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-            overflow: 'hidden'
+            boxShadow: '0 0 30px rgba(0,217,255,0.15), inset 0 0 20px rgba(0,0,0,0.5)',
+            overflow: 'hidden',
+            zIndex: 1
           }}>
-             {/* Tech Grid Overlay over the image */}
-             <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 2, pointerEvents: 'none' }}></div>
-             
              {/* The User's Image */}
-             <img src="/profile.jpg" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(30%) contrast(1.1)', zIndex: 1, position: 'relative' }} onError={(e) => { e.target.style.display = 'none'; }} />
+             <img src="/profile.jpg" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', zIndex: 1, position: 'relative', filter: 'brightness(1.1) contrast(1.1)' }} onError={(e) => { e.target.style.display = 'none'; }} />
              
              {/* Fallback if image fails to load */}
              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dim)', fontStyle: 'italic', zIndex: 0, flexDirection: 'column', gap: '1rem' }}>
@@ -102,8 +104,8 @@ const Hero = () => {
              </div>
              
              {/* Decorative corners */}
-             <div style={{ position: 'absolute', top: 16, left: 16, width: 20, height: 20, borderTop: '2px solid var(--border-hover)', borderLeft: '2px solid var(--border-hover)', zIndex: 3 }}></div>
-             <div style={{ position: 'absolute', bottom: 16, right: 16, width: 20, height: 20, borderBottom: '2px solid var(--border-hover)', borderRight: '2px solid var(--border-hover)', zIndex: 3 }}></div>
+             <div style={{ position: 'absolute', top: 16, left: 16, width: 20, height: 20, borderTop: '2px solid var(--accent-cyan)', borderLeft: '2px solid var(--accent-cyan)', zIndex: 3 }}></div>
+             <div style={{ position: 'absolute', bottom: 16, right: 16, width: 20, height: 20, borderBottom: '2px solid var(--accent-cyan)', borderRight: '2px solid var(--accent-cyan)', zIndex: 3 }}></div>
           </div>
         </motion.div>
       </div>

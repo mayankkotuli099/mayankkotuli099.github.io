@@ -45,8 +45,8 @@ const CyberBackground = () => {
 
     // System Data
     const isMobile = width < 768;
-    const NUM_NODES = isMobile ? 30 : 80;
-    const MAX_DISTANCE = isMobile ? 120 : 180;
+    const NUM_NODES = isMobile ? 50 : 120;
+    const MAX_DISTANCE = isMobile ? 120 : 200;
     
     let nodes = [];
     let telemetry = [];
@@ -77,10 +77,10 @@ const CyberBackground = () => {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.2;
-        this.vy = (Math.random() - 0.5) * 0.2;
-        this.radius = Math.random() > 0.9 ? 2 : 1;
-        this.baseAlpha = Math.random() * 0.4 + 0.1;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() > 0.9 ? 2.5 : 1.5;
+        this.baseAlpha = Math.random() * 0.6 + 0.2;
         this.alpha = this.baseAlpha;
         // Jhap-jhap flicker
         this.flickerTimer = Math.random() * 500;
@@ -105,8 +105,8 @@ const CyberBackground = () => {
         
         if (dist < 150) {
           const force = (150 - dist) / 150;
-          this.x -= (dx / dist) * force * 0.5;
-          this.y -= (dy / dist) * force * 0.5;
+          this.x -= (dx / dist) * force * 1.5;
+          this.y -= (dy / dist) * force * 1.5;
         }
 
         // Flicker logic
@@ -123,6 +123,12 @@ const CyberBackground = () => {
         ctx.arc(this.x, this.y - parallaxY, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0, 217, 255, ${this.alpha})`;
         ctx.fill();
+        
+        // Add subtle glow
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(0, 217, 255, 0.5)';
+        ctx.fill();
+        ctx.shadowBlur = 0;
       }
     }
 
@@ -131,7 +137,7 @@ const CyberBackground = () => {
         this.start = startNode;
         this.end = endNode;
         this.progress = 0;
-        this.speed = Math.random() * 0.02 + 0.01;
+        this.speed = Math.random() * 0.03 + 0.02;
         this.active = true;
       }
 
@@ -146,9 +152,13 @@ const CyberBackground = () => {
         const y = this.start.y + (this.end.y - this.start.y) * this.progress;
         
         ctx.beginPath();
-        ctx.arc(x, y - parallaxY, 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(16, 185, 129, ${Math.sin(this.progress * Math.PI)})`; // Emerald
+        ctx.arc(x, y - parallaxY, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(167, 139, 250, ${Math.sin(this.progress * Math.PI) * 1.5})`; // Purple
         ctx.fill();
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = 'rgba(167, 139, 250, 0.8)';
+        ctx.fill();
+        ctx.shadowBlur = 0;
       }
     }
 
@@ -171,15 +181,15 @@ const CyberBackground = () => {
         if (!this.active) return;
         
         // Fade in and out
-        let alpha = 0.15;
-        if (this.life < 10) alpha = (this.life / 10) * 0.15;
-        if (this.life > this.maxLife - 10) alpha = ((this.maxLife - this.life) / 10) * 0.15;
+        let alpha = 0.25;
+        if (this.life < 10) alpha = (this.life / 10) * 0.25;
+        if (this.life > this.maxLife - 10) alpha = ((this.maxLife - this.life) / 10) * 0.25;
         
         // Occasional flicker
         if (Math.random() > 0.95) alpha *= 0.2;
 
-        ctx.font = '10px "JetBrains Mono", monospace';
-        ctx.fillStyle = `rgba(160, 160, 160, ${alpha})`;
+        ctx.font = '11px "JetBrains Mono", monospace';
+        ctx.fillStyle = `rgba(0, 217, 255, ${alpha})`;
         ctx.fillText(this.text, this.x, this.y - parallaxY);
       }
     }
@@ -215,13 +225,13 @@ const CyberBackground = () => {
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y - parallaxY);
             ctx.lineTo(n2.x, n2.y - parallaxY);
-            const alpha = (1 - dist / MAX_DISTANCE) * 0.15; // Extremely faint
+            const alpha = (1 - dist / MAX_DISTANCE) * 0.25; // More visible
             ctx.strokeStyle = `rgba(0, 217, 255, ${alpha})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
 
             // Randomly spawn signals along connections
-            if (Math.random() > 0.999 && signals.length < 5) {
+            if (Math.random() > 0.99 && signals.length < 15) {
               signals.push(new Signal(n1, n2));
             }
           }
@@ -236,7 +246,7 @@ const CyberBackground = () => {
       }
 
       // Spawn telemetry randomly
-      if (Math.random() > 0.95 && telemetry.length < (isMobile ? 3 : 8)) {
+      if (Math.random() > 0.90 && telemetry.length < (isMobile ? 5 : 12)) {
         telemetry.push(new Telemetry());
       }
 
