@@ -64,13 +64,13 @@ function App() {
       <AgentChat />
 
       <footer style={{ borderTop: '1px solid var(--border-color)', padding: '2rem 0', display: 'flex', justifyContent: 'center', color: 'var(--text-secondary)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+        <div className="container footer-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
            <div className="font-mono" style={{ fontSize: '0.85rem' }}>
              © {new Date().getFullYear()} Mayank Kotuli. Software Developer • AI Enthusiast • Cybersecurity Explorer
              <br />
              <span style={{ color: 'var(--text-dim)' }}>Delhi NCR, India | mayankkotuli099@gmail.com</span>
            </div>
-           <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem' }} className="font-mono">
+           <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem' }} className="font-mono footer-socials">
               <a href="https://github.com/mayankkotuli099" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://www.linkedin.com/in/mayank-kotuli-445891363/" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="https://www.instagram.com/mayank_kotuli.tech" target="_blank" rel="noreferrer">Instagram</a>

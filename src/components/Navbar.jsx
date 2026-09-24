@@ -42,7 +42,7 @@ const Navbar = () => {
       borderBottom: scrolled ? '1px solid var(--border-color)' : '1px solid transparent',
       transition: 'all 0.3s ease'
     }}>
-      <div className="container" style={{
+      <div className="container nav-container" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -76,8 +76,8 @@ const Navbar = () => {
         </div>
 
         {/* Right Side: Nav & Command Trigger */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-          <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.85rem' }} className="font-mono">
+        <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+          <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.85rem' }} className="font-mono nav-links">
             {['home', 'projects', 'skills', 'contact'].map(link => (
               <a 
                 key={link} 

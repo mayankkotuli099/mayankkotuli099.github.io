@@ -18,7 +18,7 @@ const Hero = () => {
 
   return (
     <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center' }}>
+      <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center' }}>
         
         {/* Left Side: Text Content */}
         <motion.div
@@ -35,7 +35,7 @@ const Hero = () => {
             Software Developer • AI Enthusiast • Cybersecurity Explorer
           </p>
 
-          <h1 style={{ fontSize: 'clamp(3.5rem, 6vw, 5rem)', lineHeight: 1.05, marginBottom: '1.5rem', letterSpacing: '-0.03em', color: 'var(--text-primary)' }}>
+          <h1 className="hero-title" style={{ fontSize: 'clamp(3.5rem, 6vw, 5rem)', lineHeight: 1.05, marginBottom: '1.5rem', letterSpacing: '-0.03em', color: 'var(--text-primary)' }}>
             Mayank<br/>
             <span className="text-gradient">Kotuli.</span>
           </h1>

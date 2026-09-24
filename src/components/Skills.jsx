@@ -44,7 +44,7 @@ const Skills = () => {
         <div className="section-line"></div>
       </motion.div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem' }}>
         {skillCategories.map((cat, i) => (
           <motion.div 
             key={i} 
