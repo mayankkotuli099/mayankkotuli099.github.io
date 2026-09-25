@@ -66,7 +66,7 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="font-mono" style={{ position: 'absolute', top: '10%', left: '-10%', background: 'rgba(0, 217, 255, 0.05)', border: '1px solid rgba(0, 217, 255, 0.4)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-cyan)', backdropFilter: 'blur(8px)', zIndex: 10, boxShadow: '0 0 15px rgba(0, 217, 255, 0.2)' }}
+            className="font-mono" style={{ position: 'absolute', top: '2%', left: '-25%', background: 'rgba(0, 217, 255, 0.05)', border: '1px solid rgba(0, 217, 255, 0.4)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-cyan)', backdropFilter: 'blur(8px)', zIndex: 10, boxShadow: '0 0 15px rgba(0, 217, 255, 0.2)' }}
           >
             AI · CYBERSECURITY
           </motion.div>
@@ -74,7 +74,7 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [10, -10, 10] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="font-mono" style={{ position: 'absolute', bottom: '20%', right: '-10%', background: 'rgba(167, 139, 250, 0.05)', border: '1px solid rgba(167, 139, 250, 0.4)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-purple)', backdropFilter: 'blur(8px)', zIndex: 10, boxShadow: '0 0 15px rgba(167, 139, 250, 0.2)' }}
+            className="font-mono" style={{ position: 'absolute', bottom: '5%', right: '-25%', background: 'rgba(167, 139, 250, 0.05)', border: '1px solid rgba(167, 139, 250, 0.4)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--accent-purple)', backdropFilter: 'blur(8px)', zIndex: 10, boxShadow: '0 0 15px rgba(167, 139, 250, 0.2)' }}
           >
             SOFTWARE_DEVELOPER
           </motion.div>
