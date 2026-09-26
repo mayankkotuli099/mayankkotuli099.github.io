@@ -7,6 +7,16 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Personal Portfolio',
+      desc: 'My personal developer portfolio website featuring a cyberpunk aesthetic, interactive agent chat, and command palette to showcase my projects, skills, and technical experience.',
+      tech: ['React', 'Vite', 'Framer Motion', 'CSS'],
+      year: '2026',
+      type: 'WEB PLATFORM',
+      live: 'https://mayank099.pages.dev/',
+      source: 'https://github.com/mayankkotuli099/mayankkotuli099.github.io',
+      image: '/portfolio.png'
+    },
+    {
       title: 'ABES Autonomy',
       desc: 'A student-focused academic resource platform for ABES Engineering College, designed to organize notes, PDFs, previous-year papers and academic resources in one place.',
       tech: ['React', 'Next.js', 'JavaScript', 'Node.js', 'MongoDB', 'Git', 'Vercel', 'Render'],
